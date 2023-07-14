@@ -1,0 +1,20 @@
+void deleteFront (struct Node **head)
+{
+  struct Node *tempNode = *head;
+if (*head == NULL)
+    {
+      printf ("Linked List Empty, nothing to delete\n");
+      return;
+    }
+if (tempNode->next == NULL)
+    {
+      printf ("%d deleted\n", tempNode->data);
+      *head = NULL;
+      return;
+    }
+*head = (*head)->next;
+(*head)->prev = NULL;
+printf ("%d deleted\n", tempNode->data);
+  free (tempNode);
+}
+
